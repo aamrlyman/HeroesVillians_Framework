@@ -10,7 +10,15 @@ from .serializers import SuperSerializer
 @api_view(['GET', 'POST'])
 def supers_list(request):
     if request.method == 'GET':
+        
+        super_by_type = request.query_params.get('super_type')
+        print(super_by_type)
+
         super = Super.objects.all()
+
+        if super_by_type:
+           super = super.filter(type = super_by_type) 
+        
         serializer = SuperSerializer(super, many=True)
         return Response(serializer.data)
     
