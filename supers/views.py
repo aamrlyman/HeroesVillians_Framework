@@ -14,9 +14,15 @@ def supers_list(request):
     if request.method == 'GET':
         
         super_by_type = request.query_params.get('super_type')
+        super_by_name = request.query_params.get('sort')
         supers = Super.objects.all()
 
-        if super_by_type:
+        if super_by_name:
+            supers = supers.order_by(super_by_name)
+            serializer = SuperSerializer(supers, many = True)
+            return Response(serializer.data)
+
+        elif super_by_type:
             supers = supers.filter(super_type__type = super_by_type) 
             serializer = SuperSerializer(supers, many=True)
             return Response(serializer.data)
@@ -58,7 +64,7 @@ def supers_detail(request, pk):
 
 
 @api_view(["GET"])
-def super_by_type_dict(request):
+def supers_by_type_dict(request):
     super_types = SuperType.objects.all()
     super_type_dict = {}
     for super_type in super_types:
@@ -69,3 +75,4 @@ def super_by_type_dict(request):
             "supers": super_serializer.data
         }
     return Response(super_type_dict)
+
