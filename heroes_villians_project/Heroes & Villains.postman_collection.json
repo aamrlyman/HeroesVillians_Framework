@@ -1,0 +1,639 @@
+{
+	"info": {
+		"_postman_id": "a3a8d805-43c9-4256-a810-5471059734f7",
+		"name": "Heroes & Villains",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22412469"
+	},
+	"item": [
+		{
+			"name": "GET super by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET super by id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers/2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers",
+								"2",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 02 Sep 2022 02:31:06 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, GET, OPTIONS, PUT"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "183"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 2,\n    \"name\": \"Superman\",\n    \"alter_ego\": \"Clark Kent\",\n    \"primary_ability\": \"Flight\",\n    \"secondary_ability\": \"X-ray Vision\",\n    \"catchphrase\": \"Up, up, and away!\",\n    \"super_type\": {\n        \"id\": 1,\n        \"type\": \"Hero\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "POST new super to db",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Superman\",\r\n    \"alter_ego\": \"Clark Kent\",\r\n    \"primary_ability\": \"Super Strength\",\r\n    \"secondary_ability\": \"Flight\",\r\n    \"catchphrase\": \"Up, up, and away!\",\r\n    \"super_type\": \"Hero\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						""
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "POST new super to db",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"name\": \"Antman\",\r\n        \"alter_ego\": \"Johnny?\",\r\n        \"primary_ability\": \"Get Really Small\",\r\n        \"secondary_ability\": \"Talk to Ants\",\r\n        \"catchphrase\": \"Lets do this!\",\r\n        \"super_type\": \"Hero\",\r\n        \"super_type_id\": \"1\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers",
+								""
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 02 Sep 2022 02:32:46 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS, POST"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "184"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 6,\n    \"name\": \"Antman\",\n    \"alter_ego\": \"Johnny?\",\n    \"primary_ability\": \"Get Really Small\",\n    \"secondary_ability\": \"Talk to Ants\",\n    \"catchphrase\": \"Lets do this!\",\n    \"super_type\": {\n        \"id\": 1,\n        \"type\": \"Hero\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "UPDATE existing super in db",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Superman\",\r\n    \"alter_ego\": \"Clark Kent\",\r\n    \"primary_ability\": \"Flight\",\r\n    \"secondary_ability\": \"X-ray Vision\",\r\n    \"catchphrase\": \"Up, up, and away!\",\r\n    \"super_type\": \"Hero\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UPDATE existing super in db",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Joker\",\r\n    \"alter_ego\": \"??\",\r\n    \"primary_ability\": \"Fighting\",\r\n    \"secondary_ability\": \"tricks\",\r\n    \"catchphrase\": \"why so serious!\",\r\n    \"super_type\": \"Villian\",\r\n    \"super_type_id\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers/3/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers",
+								"3",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 02 Sep 2022 02:34:21 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, GET, OPTIONS, PUT"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "169"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"name\": \"Joker\",\n    \"alter_ego\": \"??\",\n    \"primary_ability\": \"Fighting\",\n    \"secondary_ability\": \"tricks\",\n    \"catchphrase\": \"why so serious!\",\n    \"super_type\": {\n        \"id\": 2,\n        \"type\": \"Villian\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "DELETE super",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DELETE super",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers/5/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers",
+								"5",
+								""
+							]
+						}
+					},
+					"status": "No Content",
+					"code": 204,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 02 Sep 2022 02:35:03 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.5"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "DELETE, GET, OPTIONS, PUT"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "GET all supers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GET all supers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 02 Sep 2022 02:31:28 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, OPTIONS, POST"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "721"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 2,\n        \"name\": \"Superman\",\n        \"alter_ego\": \"Clark Kent\",\n        \"primary_ability\": \"Flight\",\n        \"secondary_ability\": \"X-ray Vision\",\n        \"catchphrase\": \"Up, up, and away!\",\n        \"super_type\": {\n            \"id\": 1,\n            \"type\": \"Hero\"\n        }\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Joker\",\n        \"alter_ego\": \"Unknown\",\n        \"primary_ability\": \"Combat\",\n        \"secondary_ability\": \"Cunning\",\n        \"catchphrase\": \"\\\"Smile!\\\"\",\n        \"super_type\": {\n            \"id\": 2,\n            \"type\": \"Villian\"\n        }\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Green Goblin\",\n        \"alter_ego\": \"Parker's Friend's Dad\",\n        \"primary_ability\": \"Super Strength\",\n        \"secondary_ability\": \"Tech\",\n        \"catchphrase\": \"out am I!\",\n        \"super_type\": {\n            \"id\": 2,\n            \"type\": \"Villian\"\n        }\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Phantom\",\n        \"alter_ego\": \"Bruce Banner\",\n        \"primary_ability\": \"Magic Ring\",\n        \"secondary_ability\": \"Combat\",\n        \"catchphrase\": \"Hurray!\",\n        \"super_type\": {\n            \"id\": 1,\n            \"type\": \"Hero\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get_super_by_type",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/supers?super_type=Hero",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"supers"
+					],
+					"query": [
+						{
+							"key": "super_type",
+							"value": "Hero"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get_super_by_type",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/supers?super_type=Villian",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"supers"
+							],
+							"query": [
+								{
+									"key": "super_type",
+									"value": "Villian"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Fri, 02 Sep 2022 19:34:38 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.5"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "POST, GET, OPTIONS"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Content-Length",
+							"value": "365"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 3,\n        \"name\": \"Joker\",\n        \"alter_ego\": \"??\",\n        \"primary_ability\": \"Fighting\",\n        \"secondary_ability\": \"tricks\",\n        \"catchphrase\": \"why so serious!\",\n        \"super_type\": {\n            \"id\": 2,\n            \"type\": \"Villian\"\n        }\n    },\n    {\n        \"id\": 4,\n        \"name\": \"Green Goblin\",\n        \"alter_ego\": \"Parker's Friend's Dad\",\n        \"primary_ability\": \"Super Strength\",\n        \"secondary_ability\": \"Tech\",\n        \"catchphrase\": \"out am I!\",\n        \"super_type\": {\n            \"id\": 2,\n            \"type\": \"Villian\"\n        }\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "supers_by_type_dict",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "supers_by_name_alphabet",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
