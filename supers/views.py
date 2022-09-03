@@ -55,35 +55,17 @@ def supers_detail(request, pk):
     elif request.method == "DELETE":
         super.delete()
         return Response(status = status.HTTP_204_NO_CONTENT)
-# @api_view(["GET", "PUT", "DELETE"])
-# def product_detail(request, pk):
-#     product = get_object_or_404(Product, pk=pk)
-#     if request.method == 'GET':
-#         serializer = ProductSerializer(product);
-#         return Response(serializer.data)
-#     elif request.method == "PUT":
-#         serializer = ProductSerializer(product, data=request.data);
-#         serializer.is_valid(raise_exception=True)
-        # serializer.save()
-#         return Response(serializer.data)
-#     elif request.method == "DELETE":
-#              product.delete()
-#              return Response(status = status.HTTP_204_NO_CONTENT)
 
 
-
-
-
-
-
-# # @api_view(['GET', 'PUT', 'DELETE'])
-# # def product_detail(request, pk):
-# #     product = get_object_or_404 (Product, pk=pk)
-# #     if request.method == "GET":
-# #         serializer = ProductSerializer(Product);
-# #         return Response(serializer.data)
-# #     elif request.method == "PUT":
-# #         serializer = ProductSerializer(Product, data = request.data);
-# #         serializer.is_valid(raise_exception=True)
-# #         serializer.save()
-# #         return Response(serializer.data) 
+@api_view(["GET"])
+def super_by_type_dict(request):
+    super_types = SuperType.objects.all()
+    super_type_dict = {}
+    for super_type in super_types:
+        supers = Super.objects.filter(super_type_id = super_type.id)
+        super_serializer = SuperSerializer(supers, many=True)
+        super_type_dict[super_type.type] = {
+            "type": super_type.type,
+            "supers": super_serializer.data
+        }
+    return Response(super_type_dict)
